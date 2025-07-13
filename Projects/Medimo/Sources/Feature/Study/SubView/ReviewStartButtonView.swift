@@ -1,10 +1,3 @@
-//
-//  ReviewStartButtonView.swift
-//  Projects
-//
-//  Created by 양시준 on 6/4/25.
-//
-
 import SwiftUI
 
 struct ReviewStartButtonView: View {
@@ -12,41 +5,28 @@ struct ReviewStartButtonView: View {
     
     var body: some View {
         Button(action: action) {
-            ZStack {
-                HStack {
-                    Spacer()
-                    Image("cloudBottom")
-                        .resizable()
-                        .scaledToFill()
-                        .rotationEffect(Angle(degrees: -30))
-                        .frame(width: 186, height: 60)
-                        .offset(x: 30, y: 18)
-                        .clipped()
-                }
-                HStack {
-                    Text("복습하기")
-                        .font(.headline)
-                        .foregroundStyle(AppColor.primaryPink)
-                        .padding(.leading, 16)
-                    Spacer()
-                }
+            HStack {
+                Text("복습하기")
+                    .font(.headline)
+                    .foregroundStyle(AppColor.primaryPink)
+                    .padding(.leading, 16)
+                Spacer()
+                Image("reviewIcon")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 40, height: 40)
+                    .padding(.trailing, 24)
             }
-            .background(AppColor.white)
-            .mask(
+            .frame(height: 60)
+            .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .frame(height: 60)
+                    .fill(AppColor.white)
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
-                    .inset(by: 1)
                     .stroke(AppColor.pink, lineWidth: 2)
-                    .frame(height: 60)
             )
         }
         .buttonStyle(.plain)
     }
-}
-
-#Preview {
-    ReviewStartButtonView(action: {})
 }
