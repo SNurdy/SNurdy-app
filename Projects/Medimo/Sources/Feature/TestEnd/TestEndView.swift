@@ -42,7 +42,7 @@ struct TestEndView: View {
                 VStack {
                     Text("오늘 학습한 용어")
                         .font(.body)
-                        .foregroundStyle(AppColor.grey4)
+                        .foregroundStyle(AppColor.white)
                         .padding(.bottom, 10)
                     
                     Text("\(index + 1)개")
