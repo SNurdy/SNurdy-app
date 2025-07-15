@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct MedimoApp: App {
+struct SNurdyApp: App {
     var body: some Scene {
         WindowGroup {
             SplashView()
