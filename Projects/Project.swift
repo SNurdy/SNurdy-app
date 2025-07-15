@@ -8,10 +8,10 @@ let project = Project(
     ),
     targets: [
         .target(
-            name: "Medimo",
+            name: "SNurdy",
             destinations: .iOS,
             product: .app,
-            bundleId: "org.nulls.medimo",
+            bundleId: "org.snurdy.SNurdy",
             deploymentTargets: .iOS("17.0"),
             infoPlist: .extendingDefault(
                 with: [
@@ -33,23 +33,23 @@ let project = Project(
                     "UIBackgroundModes": ["remote-notification"],
                 ]
             ),
-            sources: ["Medimo/Sources/**"],
+            sources: ["SNurdy/Sources/**"],
             resources: [
-                "Medimo/Resources/**",
-                "Medimo/Resources/**/*.xcdatamodeld",
+                "SNurdy/Resources/**",
+                "SNurdy/Resources/**/*.xcdatamodeld",
             ],
-            entitlements: "Medimo/Medimo.entitlements",
+            entitlements: "SNurdy/SNurdy.entitlements",
             dependencies: []
         ),
         .target(
-            name: "MedimoTests",
+            name: "SNurdyTests",
             destinations: .iOS,
             product: .unitTests,
-            bundleId: "org.nulls.MedimoTests",
+            bundleId: "org.snurdy.SNurdyTests",
             infoPlist: .default,
-            sources: ["Medimo/Tests/**"],
+            sources: ["SNurdy/Tests/**"],
             resources: [],
-            dependencies: [.target(name: "Medimo")]
+            dependencies: [.target(name: "SNurdy")]
         ),
     ]
 )
