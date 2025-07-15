@@ -12,35 +12,26 @@ struct StudyStartButtonView: View {
     
     var body: some View {
         Button(action: action) {
-            ZStack {
-                HStack {
-                    Spacer()
-                    Image("character1")
-                        .resizable()
-                        .scaledToFill()
-                        .rotationEffect(Angle(degrees: -30))
-                        .offset(x: 30, y: 8)
-                        .frame(width: 136, height: 60)
-                        .clipped()
-                }
-                HStack {
-                    Text("학습하기")
-                        .font(.headline)
-                        .foregroundStyle(AppColor.primary)
-                        .padding(.leading, 16)
-                    Spacer()
-                }
+            HStack {
+                Text("학습하기")
+                    .font(.headline)
+                    .foregroundStyle(AppColor.primary)
+                    .padding(.leading, 16)
+                Spacer()
+                Image("studyIcon")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 40, height: 40)
+                    .padding(.trailing, 24)
             }
-            .background(AppColor.white)
-            .mask(
+            .frame(height: 60)
+            .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .frame(height: 60)
+                    .fill(AppColor.white)
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
-                    .inset(by: 1)
                     .stroke(AppColor.blue, lineWidth: 2)
-                    .frame(height: 60)
             )
         }
         .buttonStyle(.plain)

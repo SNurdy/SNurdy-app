@@ -54,7 +54,7 @@ struct PronounciationTestView: View {
                         showSoundAlert = true
                     }
                 }) {
-                    Image("volume-2")
+                    Image(systemName: "speaker.wave.2.fill")
                         .renderingMode(.template)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
