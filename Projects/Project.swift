@@ -11,7 +11,7 @@ let project = Project(
             name: "SNurdy",
             destinations: .iOS,
             product: .app,
-            bundleId: "org.snurdy.SNurdy",
+            bundleId: "org.medical.SNurdy",
             deploymentTargets: .iOS("17.0"),
             infoPlist: .extendingDefault(
                 with: [
