@@ -29,7 +29,7 @@ enum CloudKitServiceError: Error, LocalizedError {
 class CloudKitManager {
     static let shared = CloudKitManager()
 
-    private let containerID = "iCloud.org.nulls.medimo.c3"
+    private let containerID = "iCloud.org.medical.SNurdy"
     private let zone = CKRecordZone.default()
     private var container: CKContainer {
         CKContainer(identifier: containerID)
