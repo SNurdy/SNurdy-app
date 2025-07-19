@@ -25,9 +25,13 @@ struct GlossaryCardView: View {
                 .frame(height: 8)
                 .overlay(
                     GeometryReader { geometry in
+                        let progressRatio = totalCount > 0
+                            ? min(CGFloat(currentCount) / CGFloat(totalCount), 1.0)
+                            : 0
+
                         Capsule()
                             .fill(AppColor.systemFill)
-                            .frame(width: geometry.size.width * CGFloat(currentCount)/CGFloat(totalCount), height: 8)
+                            .frame(width: geometry.size.width * progressRatio, height: 8)
                     }
                     .clipShape(Capsule())
                 )
