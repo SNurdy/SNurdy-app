@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DictionarySearchBoxView: View {
     @Binding var searchText: String
+    @FocusState private var isFocused: Bool
 
     var body: some View {
         RoundedRectangle(cornerRadius: 13)
@@ -21,6 +22,7 @@ struct DictionarySearchBoxView: View {
                             .font(.caption)
                             .foregroundStyle(AppColor.grey3)
                     )
+                    .focused($isFocused)
                     .foregroundStyle(AppColor.label)
                     .padding(21)
                     Spacer()
@@ -36,6 +38,9 @@ struct DictionarySearchBoxView: View {
             )
             .foregroundStyle(Color.white)
             .frame(height: 50)
+            .onTapGesture {
+                isFocused = true
+            }
     }
 }
 

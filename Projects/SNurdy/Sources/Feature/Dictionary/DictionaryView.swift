@@ -11,10 +11,13 @@ import SwiftUI
 
 struct DictionaryView: View {
     @State private var viewModel: DictionaryViewModel = .init()
+    @FocusState private var isSearchFocused: Bool
+
 
     var body: some View {
         VStack(spacing: 0) {
             DictionaryHeaderView(searchText: $viewModel.searchText)
+                .focused($isSearchFocused)
 
             DictionaryTermListView(viewModel: viewModel)
                 .padding(.bottom, 64)
@@ -27,6 +30,8 @@ struct DictionaryView: View {
             DictionaryDetailView(term: term)
                 .presentationDetents([.height(640)])
                 .presentationDragIndicator(.visible)
+        }.onTapGesture {
+            isSearchFocused = false
         }
     }
 }
