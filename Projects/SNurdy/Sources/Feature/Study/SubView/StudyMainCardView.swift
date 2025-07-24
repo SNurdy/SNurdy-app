@@ -21,6 +21,8 @@ struct StudyMainCardView: View {
 
     @Binding var isStudyInProgress: Bool
     @State private var showAlert = false
+    
+    @State var streak: Int
 
     var body: some View {
         ZStack {
@@ -59,7 +61,11 @@ struct StudyMainCardView: View {
                     .alert("리뷰를 시작할 수 없어요", isPresented: $showAlert) {
                         Button("확인", role: .cancel) {}
                     } message: {
-                        Text("학습을 먼저 완료해주세요!")
+                        if streak != 0 {
+                            Text("학습을 먼저 완료해주세요!")
+                        } else {
+                            Text("복습은 다음날부터 가능해요!")
+                        }
                     }
                 }
             }

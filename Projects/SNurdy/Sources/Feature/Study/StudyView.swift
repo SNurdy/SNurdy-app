@@ -28,7 +28,7 @@ struct StudyView: View {
                 VStack(spacing: 0) {
                     StudyHeaderView(streak: studyViewModel.streak)
 
-                    StudyMainCardView(isStudyInProgress: $isStudyInProgress)
+                    StudyMainCardView(isStudyInProgress: $isStudyInProgress, streak: studyViewModel.streak)
                         .padding(.top, 42)
                         .padding(.horizontal, 16)
 
