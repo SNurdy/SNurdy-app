@@ -18,9 +18,18 @@ class DictionaryViewModel {
     var searchText: String = ""
 
     var term: [Term] = []
+//    var filteredTerms: [Term] {
+//        return term.filter {
+//            searchText.isEmpty || ($0.spelling?.localizedCaseInsensitiveContains(searchText) ?? false)
+//        }
+//    }
     var filteredTerms: [Term] {
-        return term.filter {
-            searchText.isEmpty || ($0.spelling?.localizedCaseInsensitiveContains(searchText) ?? false)
+        guard !searchText.isEmpty else { return term }
+        return term.filter { term in
+            let matchesSpelling = term.spelling?.localizedCaseInsensitiveContains(searchText) ?? false
+            let matchesMeaning = term.meaning?.localizedCaseInsensitiveContains(searchText) ?? false
+            let matchesAbbreviation = term.abbreviation?.localizedCaseInsensitiveContains(searchText) ?? false
+            return matchesSpelling || matchesMeaning || matchesAbbreviation
         }
     }
 
