@@ -25,7 +25,7 @@ struct TestEndView: View {
 
     var body: some View {
         VStack {
-            Spacer(minLength: 140)
+            Spacer()
             
             Text(top)
                 .font(.body)
@@ -34,11 +34,13 @@ struct TestEndView: View {
             Text(bottom)
                 .font(.title)
                 .foregroundStyle(AppColor.grey4)
-                .padding(.bottom, 54)
+                .padding(.bottom, 59)
             
             ZStack {
                 Image("cardImage")
-                    .padding(.leading, 40)
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.horizontal, 55)
                 VStack {
                     Text("오늘 학습한 용어")
                         .font(.body)
@@ -70,5 +72,20 @@ struct TestEndView: View {
         .background(AppColor.bgColor)
         .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
+    }
+}
+
+import SwiftUI
+
+struct TestEndView_Previews: PreviewProvider {
+    @State static var isStudyInProgress = true
+    @State static var learningType: LearningType = .study
+    
+    static var previews: some View {
+        TestEndView(
+            isStudyInProgress: $isStudyInProgress,
+            index: 4,
+            learningType: $learningType
+        )
     }
 }
