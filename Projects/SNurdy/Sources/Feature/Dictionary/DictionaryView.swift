@@ -31,7 +31,7 @@ struct DictionaryView: View {
     }
 }
 
-// #Preview {
-//    let context = CoreDataManager.preview.container.viewContext
-//    DictionaryView()
-// }
+ #Preview {
+    let context = CoreDataManager.preview.container.viewContext
+    DictionaryView()
+ }
