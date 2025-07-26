@@ -51,6 +51,7 @@ struct TestEndView: View {
                         .font(.largeTitle)
                         .foregroundStyle(AppColor.navy)
                 }
+                .offset(x: -20)
             }
             
             Spacer()
